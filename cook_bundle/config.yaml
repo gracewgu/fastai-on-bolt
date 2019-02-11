@@ -1,0 +1,16 @@
+name: fastai jupyter notebook
+setup_command: 'bash setup.sh'
+command: 'bash cook_bundle.sh'
+environment: tf12_mr2
+environment_variables:
+  CUDA_HOME: '/usr/local/cuda'
+  LD_LIBRARY_PATH: '$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64'
+  BLOBBY: 'https://blob.mr2.simcloud.apple.com'
+resources:
+  cluster: simcloud-mr2.apple.com
+  num_gpus: 1
+  num_cpus: 4
+  disk_gb: 50
+  memory_gb: 32
+  timeout: 2d
+  ports: ['NOTEBOOK', 'HTTP']
